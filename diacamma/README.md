@@ -8,22 +8,22 @@ Here are environment possible values
 | var                   | possible values               | default              | description                                        |
 |:----------------------|:------------------------------|:---------------------|:---------------------------------------------------|
 | DIACAMMA_TYPE         | syndic, asso                  | asso                 | run a diacamma-syndic or diacamma-asso instance    |
-| DIACAMMA_ORGANISATION | any string (no space allowed) | N/A                  | name for your Diacamma instance                                 |
+| DIACAMMA_ORGANISATION | any string (no space allowed) | N/A                  | name for your Diacamma instance                    |
 | DIACAMMA_DATABASE     | Refer to Database Section     | SQLite used if empty | connection string to the database used by DIACAMMA |
 
 ## Data volumes exposed
 | path in containers                | role                                 |
 |:----------------------------------|:-------------------------------------|
 | /backups                          | store backups and restorations files |
-| /var/lucterios2/<organisation>    | store organisation setup files       |
+| /var/lucterios2/**organisation**  | store organisation setup files |
 
 It's strongly recommended to map those path onto your host.
 
 ## Building with sticked version
-
 You can build an image with forced version of each component.
-| Component         | default constaint | package                                              |
-|:------------------|:------------------|:-----------------------------------------------------|
+
+| Component|default constraint|package|
+|:---|:---|:---|
 |diacamma-asso      | empty (latest)    | https://pypi.org/project/diacamma-asso/#history      |
 |diacamma-syndic    | empty (latest)    | https://pypi.org/project/diacamma-syndic/#history    |
 |lucterios-standard | empty (latest)    | https://pypi.org/project/lucterios-standard/#history |
