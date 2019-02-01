@@ -73,7 +73,8 @@ function run {
             if [ -f ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py ]
             then
                 ln -s ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py .
-            fi            
+            fi
+        fi
     fi
 
     source virtual_for_lucterios/bin/activate
