@@ -58,6 +58,22 @@ function run {
 
         echo "LANGUAGE_CODE = 'fr'" >> ${CURRENT_ORGANISATION}/settings.py
         echo "ALLOWED_HOSTS = [ '*' ]" >> ${CURRENT_ORGANISATION}/settings.py
+        
+        mv manage_${CURRENT_ORGANISATION}.py ${CURRENT_ORGANISATION}/
+        ln -s ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py .
+    else
+        if [ -e manage_${CURRENT_ORGANISATION}.py ]
+        then
+            if [ ! -L manage_${CURRENT_ORGANISATION}.py ]
+            then
+                mv -f manage_${CURRENT_ORGANISATION}.py ${CURRENT_ORGANISATION}/
+                ln -s ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py .
+            fi
+        else
+            if [ -f ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py ]
+            then
+                ln -s ${CURRENT_ORGANISATION}/manage_${CURRENT_ORGANISATION}.py .
+            fi            
     fi
 
     source virtual_for_lucterios/bin/activate
